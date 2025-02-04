@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ "$@" -lt 2 ]]; then
+    echo "Argument are missed"
+    exit 0
+else
+    success=$(ping -c 4 $2)
+    if [[ $? -eq 0 ]]; then
+	echo "Ping succeded"
+	echo "$1, $2, success, $(date)" >> file.csv
+    else
+	echo "Ping failed"
+	echo "$1, $2, success, $(date)" >> file.csv
+    fi
+fi
+
+    
